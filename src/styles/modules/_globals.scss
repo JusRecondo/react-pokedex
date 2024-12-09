@@ -47,12 +47,6 @@ ul {
 }
 
 button {
-    font-family: inherit;
-    font-size: 18px;
-    background: variables.$c-white;
-    color: variables.$c-black;
-    border: 2px solid variables.$c-red;
-    outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +54,13 @@ button {
     min-width: 220px;
     padding: 8px 16px;
     margin: 16px auto;
+    border: 2px solid variables.$c-red;
     border-radius: 0;
+    outline: none;
+    font-family: inherit;
+    font-size: 18px;
+    background: variables.$c-white;
+    color: variables.$c-black;
     cursor: pointer;
     transition: background 0.2s ease;
 
@@ -69,7 +69,6 @@ button {
     &:focus-visible {
         background-color: variables.$c-red;
         color: variables.$c-white;
-        border: 2px solid variables.$c-red;
     }
 
     &.go-back {
@@ -80,15 +79,15 @@ button {
 }
 
 h1 {
+    margin: 16px 0;
     font-weight: 900;
     font-size: 40px;
-    margin: 16px 0;
 }
 
 h2 {
+    margin: 12px 0;
     font-weight: 700;
     font-size: 28px;
-    margin: 12px 0;
 }
 
 p {
