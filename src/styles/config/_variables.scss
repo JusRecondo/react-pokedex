@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
+// Colors
+$c-blue: #3b4cca;
+$c-red: #cc0000;
+$c-yellow: #ffde00;
+$c-yellow-translucid: rgba(255, 221, 0, 0.664);
+$c-yellow-gradient: linear-gradient(
+    rgba(255, 221, 0, 0.664),
+    rgba(255, 221, 0, 0.299),
+    rgba(255, 221, 0, 0.1)
+);
+$c-black: #252525;
+$c-white: #fbfbfb;
+
+// Typography
+$font: 'Silkscreen', monospace;
+
+//Breakpoints
+$b-tablet: 768px;
+$b-desktop: 1024px;
+$b-desktop-lg: 1536px;
+
+// Others
+$header-height-mobile: 140px;
+$header-height-desktop: 145px;
