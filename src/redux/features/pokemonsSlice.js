@@ -5,7 +5,8 @@ import { DEFAULT_URL } from '../../lib/const'
 const initialState = {
   pokemonsWithImg: [],
   loading: false,
-  error: null
+  error: null,
+  nextUrl: ''
 }
 
 export const fetchPokemonsWithImg = createAsyncThunk(
@@ -14,6 +15,7 @@ export const fetchPokemonsWithImg = createAsyncThunk(
     try {
       const response = await axios.get(url)
       const results = response.data.results
+      const next = response.data.next
       const pokemonsWithData = await Promise.all(
         results.map(async (pokemon) => {
           const pokemonData = await axios.get(pokemon.url)
@@ -27,6 +29,7 @@ export const fetchPokemonsWithImg = createAsyncThunk(
       )
       return {
         pokemons: pokemonsWithData,
+        next
       }
     } catch (error) {
       const message = error.response?.data?.message || error.message || 'Unknown error'
@@ -48,7 +51,8 @@ const pokemonsSlice = createSlice({
     })
     builder.addCase(fetchPokemonsWithImg.fulfilled, (state, action) => {
       state.loading = false
-      state.pokemonsWithImg = action.payload.pokemons
+      state.pokemonsWithImg = state.pokemonsWithImg.concat(action.payload.pokemons)
+      state.nextUrl = action.payload.next
     })
     builder.addCase(fetchPokemonsWithImg.rejected, (state, action) => {
       state.loading = false
@@ -58,6 +62,7 @@ const pokemonsSlice = createSlice({
 })
 
 export const selectAllPokemonsWithImg = (state) => state.pokemons.pokemonsWithImg
+export const selectNextUrl = (state) => state.pokemons.nextUrl
 export const getPokemonsLoading = (state) => state.pokemons.loading
 export const getPokemonsError = (state) => state.pokemons.error
 

@@ -1,6 +1,13 @@
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router"
+import { fetchPokemonsWithImg, selectNextUrl } from "../redux/features/pokemonsSlice"
 
 const PokemonsList = ({ pokemons = [] }) => {
+  const dispatch = useDispatch()
+  const nextUrl = useSelector(selectNextUrl)
+  const handleLoadMorePokemons = () => {
+    dispatch(fetchPokemonsWithImg(nextUrl))
+  }
   return (
     <>
       <ul className="pokemons-list">
@@ -21,6 +28,20 @@ const PokemonsList = ({ pokemons = [] }) => {
           ))
         }
       </ul>
+      {
+        nextUrl && (
+          <button 
+            onClick={handleLoadMorePokemons}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleLoadMorePokemons()
+              }
+            }}
+          >
+            Load more Pokemons
+          </button>
+        ) 
+      }
     </>
   )
 }
