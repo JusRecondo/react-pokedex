@@ -1,0 +1,59 @@
+@use '../config/variables.scss';
+@use '../config/mixins.scss';
+
+#pokemon-detail {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 16px;
+
+        @include mixins.media-desktop {
+            flex-direction: row;
+        }
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 32px 0;
+        scroll-margin-top: 140px;
+
+        .section-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 16px;
+            border: 2px solid variables.$c-red;
+        }
+    }
+
+    img {
+        max-width: 300px;
+    }
+
+    .pokemon-stats {
+        margin-top: 16px;
+        width: 100%;
+
+        @include mixins.media-desktop {
+            width: 60%;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
