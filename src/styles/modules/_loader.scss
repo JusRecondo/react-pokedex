@@ -1,0 +1,19 @@
+@use '../config/variables';
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  
+  &.full-page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: variables.$c-yellow-translucid;
+    overflow: hidden;
+  }
+}

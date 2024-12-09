@@ -1,17 +1,27 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchPokemonsWithImg, getPokemonsError, getPokemonsLoading, selectAllPokemonsWithImg } from "../redux/features/pokemonsSlice"
 import PokemonsList from "../components/PokemonList"
+import Loader from "../components/Loader"
 
 const Home = () => {
+  const [fullPageLoader, setFullPageLoader] = useState(true)
   const dispatch = useDispatch()
   const pokemons = useSelector(selectAllPokemonsWithImg)
   const loading = useSelector(getPokemonsLoading)
   const error = useSelector(getPokemonsError)
 
   useEffect(() => {
-    dispatch(fetchPokemonsWithImg())
+    if (pokemons.length === 0) {
+      dispatch(fetchPokemonsWithImg())
+    }
   }, [])
+
+  useEffect(() => {
+    if (pokemons.length > 0 ) {
+      setFullPageLoader(false)
+    }
+  }, [pokemons])
 
   return (
     <main id="home">
@@ -22,7 +32,7 @@ const Home = () => {
       }
       {
         loading && (
-          <p>Loading...</p>
+          <Loader fullPage={fullPageLoader} />
         )
       }
       {

@@ -1,7 +1,8 @@
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router"
 import { fetchPokemonById, getPokemonLoading, selectPokemon } from "../redux/features/pokemonSlice"
-import { useEffect } from "react"
+import Loader from "../components/Loader"
 import { BiArrowBack } from "react-icons/bi"
 
 const PokemonDetail = () => {
@@ -19,7 +20,7 @@ const PokemonDetail = () => {
     <main id="pokemon-detail">
       {
         loading && (
-          <p>Loading...</p>
+          <Loader fullPage />
         )
       }
       <button onClick={() => navigate(-1)} className="go-back" aria-label="go back to home page">
