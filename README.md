@@ -68,3 +68,4 @@ Dejandolo público para que luego alguien del equipo lo pueda analizar como corr
 * React Router Dom
 * Sass
 * [React Icons](https://react-icons.github.io/react-icons/)
+* [React Spinners](https://mhnpd.github.io/react-loader-spinner/)
