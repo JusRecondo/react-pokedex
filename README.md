@@ -52,11 +52,11 @@ Dejandolo público para que luego alguien del equipo lo pueda analizar como corr
 ## Challenge Jus Recondo
 
 - [x] Comenzar un proyecto de React desde cero usando Vite
-- [ ] Que cargar la página se consuma la PokeAPI mostrando un listado de Pokemons con un loader
-- [ ] Manejar el estado de los Pokemons con redux toolkit 
+- [x] Que cargar la página se consuma la PokeAPI mostrando un listado de Pokemons con un loader
+- [x] Manejar el estado de los Pokemons con redux toolkit 
 - [ ] Mostrar los Pokemons en un display masonry
 - [ ] Usar la paginación de la API para poder ir cargando más Pokemons a demanda del usuario
-- [ ] Que al clickear en un Pokemon puedas ver el detalle del mismo
+- [x] Que al clickear en un Pokemon puedas ver el detalle del mismo
 - [ ] Que sea responsive 
 - [ ] Nice to have: funcionalidad de búsqueda de Pokemon por nombre
 
@@ -64,3 +64,7 @@ Dejandolo público para que luego alguien del equipo lo pueda analizar como corr
 
 * React
 * Vite
+* Redux Toolkit
+* React Router Dom
+* Sass
+* [React Icons] (https://react-icons.github.io/react-icons/)
