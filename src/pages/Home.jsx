@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchPokemonsWithImg, getPokemonsError, getPokemonsLoading, selectAllPokemonsWithImg } from "../redux/features/pokemonsSlice"
+import PokemonsList from "../components/PokemonList"
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -16,14 +17,7 @@ const Home = () => {
     <main id="home">
       {
         pokemons.length > 0 && (
-          <ul>
-            {pokemons?.map(pokemon => (
-              <li key={pokemon.id}>
-                <img src={pokemon.img} alt={pokemon.name} />
-                <p>{pokemon.name}</p>
-              </li>
-            ))}
-          </ul>
+          <PokemonsList pokemons={pokemons} />
         )
       }
       {
