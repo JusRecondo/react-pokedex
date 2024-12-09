@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router"
 import Home from "./pages/Home"
+import Header from "./components/Header"
 
 
 function App() {
   return (
     <>
-      <h1>Pokemon</h1>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
