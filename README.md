@@ -56,7 +56,7 @@ Dejandolo público para que luego alguien del equipo lo pueda analizar como corr
 - [x] Manejar el estado de los Pokemons con redux toolkit 
 - [x] Mostrar los Pokemons en un layout masonry
 - [x] Que al clickear en un Pokemon puedas ver el detalle del mismo
-- [ ] Usar la paginación de la API para poder ir cargando más Pokemons a demanda del usuario
+- [x] Usar la paginación de la API para poder ir cargando más Pokemons a demanda del usuario
 - [ ] Que sea responsive 
 - [ ] Nice to have: funcionalidad de búsqueda de Pokemon por nombre
 

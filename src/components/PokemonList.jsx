@@ -22,7 +22,9 @@ const PokemonsList = ({ pokemons = [] }) => {
                   src={pokemon.img ? pokemon.img : '/pokeball.svg'} 
                   alt={pokemon.name} 
                 />
-                {pokemon.name}
+                <p>
+                  {pokemon.name}
+                </p>
               </Link>
             </li>
           ))
