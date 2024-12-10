@@ -5,15 +5,19 @@ import { fetchPokemonsList, fetchSearchedPokemonsWithImg, resetPokemons } from "
 
 const useSearch = () => {
   const dispatch = useDispatch()
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('')
   const debouncedSearch = useDebounce(search, 300)
+
+  const isInputValid = (value) => {
+    return value.trim() !== '';
+  }
 
   useEffect(() => {
     dispatch(fetchPokemonsList())
   }, [])
 
   useEffect(() => {
-    if (debouncedSearch !== '') {
+    if (isInputValid(debouncedSearch)) {
       dispatch(fetchSearchedPokemonsWithImg(debouncedSearch))
     } else {
       dispatch(resetPokemons());
@@ -26,7 +30,7 @@ const useSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (search !== '') {
+    if (isInputValid(search)) {
       dispatch(fetchSearchedPokemonsWithImg(search))
     } else {
       dispatch(resetPokemons())
