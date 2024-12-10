@@ -75,7 +75,7 @@ export const fetchSearchedPokemonsWithImg = createAsyncThunk(
                 pokemon => pokemon.name.includes(search.toLowerCase())
             )
             if (filteredPokemons.length === 0) {
-                throw new Error('No pokemons found for this search')
+                throw new Error('No pokemons were found for this search')
             }
             console.log(filteredPokemons)
             const pokemonsWithData = await Promise.all(
