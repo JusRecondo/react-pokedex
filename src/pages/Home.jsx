@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchPokemonsWithImg, getPokemonsError, getPokemonsLoading, selectAllPokemonsWithImg } from "../redux/features/pokemonsSlice"
 import PokemonsList from "../components/PokemonList"
 import Loader from "../components/Loader"
+import ErrorMessage from "../components/ErrorMessage"
 
 const Home = () => {
   const [fullPageLoader, setFullPageLoader] = useState(true)
@@ -37,7 +38,7 @@ const Home = () => {
       }
       {
         error && (
-          <p>Ups! Something went wrong...</p>
+          <ErrorMessage />
         )
       }
     </main>

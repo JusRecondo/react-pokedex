@@ -8,12 +8,12 @@
     width: 100%;
 
     .pokemon-item {
+        @include mixins.poke-border(variables.$c-black);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 8px;
-        border: 2px solid variables.$c-black;
 
         &:only-child {
             max-width: 200px;

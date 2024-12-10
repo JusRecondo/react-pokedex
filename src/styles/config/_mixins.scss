@@ -18,3 +18,8 @@
         @content;
     }
 }
+
+//Borders
+@mixin poke-border ($color) {
+    border: 2px solid $color;
+}

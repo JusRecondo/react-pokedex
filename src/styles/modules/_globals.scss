@@ -47,6 +47,7 @@ ul {
 }
 
 button {
+    @include mixins.poke-border(variables.$c-red);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +55,6 @@ button {
     min-width: 220px;
     padding: 8px 16px;
     margin: 16px auto;
-    border: 2px solid variables.$c-red;
     border-radius: 0;
     outline: none;
     font-family: inherit;
@@ -108,4 +108,14 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
     background: variables.$c-yellow-translucid;
+}
+
+.error-message {
+    @include mixins.poke-border(variables.$c-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    max-width: 100%;
+    margin: 40px auto;
 }
