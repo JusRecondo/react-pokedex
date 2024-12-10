@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router"
-import { fetchPokemonsWithImg, selectNextUrl } from "../redux/features/pokemonsSlice"
+import { fetchPokemonsWithImg, getSearchStatus, selectNextUrl } from "../redux/features/pokemonsSlice"
+import { SEARCH_STATUS } from "../lib/const"
 
 const PokemonsList = ({ pokemons = [] }) => {
   const dispatch = useDispatch()
   const nextUrl = useSelector(selectNextUrl)
+  const searchStatus = useSelector(getSearchStatus)
   const handleLoadMorePokemons = () => {
     dispatch(fetchPokemonsWithImg(nextUrl))
   }
@@ -31,7 +33,7 @@ const PokemonsList = ({ pokemons = [] }) => {
         }
       </ul>
       {
-        nextUrl && (
+        (searchStatus === SEARCH_STATUS.IDLE && nextUrl) && (
           <button 
             onClick={handleLoadMorePokemons}
             onKeyDown={(e) => {
