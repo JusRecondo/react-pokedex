@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import useDebounce from "./useDebounce";
-import { fetchPokemonsList, fetchSearchedPokemonsWithImg, resetPokemons } from "../redux/features/pokemonsSlice";
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import useDebounce from "./useDebounce"
+import { fetchPokemonsList, fetchSearchedPokemonsWithImg, resetPokemons } from "../redux/features/pokemonsSlice"
 
 const useSearch = () => {
   const dispatch = useDispatch()
@@ -9,7 +9,7 @@ const useSearch = () => {
   const debouncedSearch = useDebounce(search, 300)
 
   const isInputValid = (value) => {
-    return value.trim() !== '';
+    return value.trim() !== ''
   }
 
   useEffect(() => {
@@ -20,13 +20,13 @@ const useSearch = () => {
     if (isInputValid(debouncedSearch)) {
       dispatch(fetchSearchedPokemonsWithImg(debouncedSearch))
     } else {
-      dispatch(resetPokemons());
+      dispatch(resetPokemons())
     }
-  }, [debouncedSearch]);
+  }, [debouncedSearch])
 
   const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
+    setSearch(e.target.value)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()

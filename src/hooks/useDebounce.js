@@ -10,10 +10,10 @@ const useDebounce = (value, delay) => {
 
     return () => {
       clearTimeout(timer)
-    };
+    }
   }, [value, delay])
 
   return debouncedValue
-};
+}
 
 export default useDebounce
