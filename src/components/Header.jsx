@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import useSearch from "../hooks/useSearch"
 
 const Header = () => {
@@ -5,7 +6,9 @@ const Header = () => {
 
   return (
     <header id="main-header">
-      <h1>Pokemon</h1>
+      <Link to="/">
+        <h1>Pokemon</h1>
+      </Link>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
