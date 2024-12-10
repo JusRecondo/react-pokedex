@@ -24,8 +24,13 @@ body {
 
 main {
     padding: 16px;
-    padding-top: 150px;
-    scroll-margin-top: 150px;
+    padding-top: 160px;
+    scroll-margin-top: 160px;
+
+    @include mixins.media-desktop {
+        padding-top: 145px;
+        scroll-margin-top: 145px;
+    }
 }
 
 a {
@@ -118,4 +123,18 @@ p {
     width: 600px;
     max-width: 100%;
     margin: 40px auto;
+}
+
+input[type='text'] {
+    border: 2px solid variables.$c-black;
+    height: 32px;
+    padding: 8px;
+    font-family: inherit;
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+        border-color: variables.$c-red;
+    }
 }
