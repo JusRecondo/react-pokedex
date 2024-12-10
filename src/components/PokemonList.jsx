@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router"
 import { fetchPokemonsWithImg, getSearchStatus, selectNextUrl } from "../redux/features/pokemonsSlice"
 import { SEARCH_STATUS } from "../lib/const"
+import Button from "./Button"
 
 const PokemonsList = ({ pokemons = [] }) => {
   const dispatch = useDispatch()
@@ -34,16 +35,16 @@ const PokemonsList = ({ pokemons = [] }) => {
       </ul>
       {
         (searchStatus === SEARCH_STATUS.IDLE && nextUrl) && (
-          <button 
-            onClick={handleLoadMorePokemons}
-            onKeyDown={(e) => {
+          <Button
+            handleClick={handleLoadMorePokemons}
+            handleKeyDown={(e) => {
               if (e.key === 'Enter') {
                 handleLoadMorePokemons()
               }
             }}
           >
             Load more Pokemons
-          </button>
+          </Button>
         ) 
       }
     </>

@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router"
 import { fetchPokemonById, getPokemonError, getPokemonLoading, resetPokemon, selectPokemon } from "../redux/features/pokemonSlice"
 import Loader from "../components/Loader"
 import ErrorMessage from "../components/ErrorMessage"
+import Button from "../components/Button"
 import { BiArrowBack } from "react-icons/bi"
 
 const PokemonDetail = () => {
@@ -26,14 +27,13 @@ const PokemonDetail = () => {
           <Loader fullPage />
         )
       }
-      <button 
-        onClick={() => 
-        navigate(-1)} 
-        className="go-back" 
-        aria-label="go back to home page"
+      <Button
+        handleClick={() => navigate(-1)}
+        ariaLabel="go back to home page"
+        customClassName="go-back"
       >
         <BiArrowBack />
-      </button>
+      </Button>
       {
         pokemonDetails.name && (
           <section>
