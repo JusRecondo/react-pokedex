@@ -1,9 +1,13 @@
-const ErrorMessage = () => {
+const ErrorMessage = ({ message = null }) => {
   return (
     <div className="error-message">
-      <p>
-        Ups! Something went wrong... Try again later!
-      </p>
+      {
+        message ? (
+          <p>{message}</p>
+        ) : (
+          <p>Ups! Something went wrong... Try again later!</p>
+        )
+      }
     </div>
   )
 }
